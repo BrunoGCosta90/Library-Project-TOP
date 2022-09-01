@@ -1,0 +1,83 @@
+.book-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    z-index: 10;
+    background-color: gainsboro;
+    padding: 15px;
+    width: 300px;
+    max-width: 50%;
+    display: grid;
+    grid-template-rows: min-content min-content;
+}
+
+.close-button {
+    grid-row: 1 / 2;
+    justify-self: right;
+    border: none;
+    background-color: gainsboro;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: -15px;
+}
+
+.close-button:hover {
+    font-weight: 1000;
+    color: red;
+}
+
+.book-form {
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-rows: repeat(5, min-content);
+    row-gap: 25px;
+}
+
+.book-form > input {
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    font-size: 18px;
+}
+
+.book-form > input:focus {
+    outline-color: red;
+}
+
+.book-read{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+}
+
+
+.book-read-yes, .book-read-no {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    justify-content: end;
+}
+
+.book-form > button {
+    justify-self: center;
+    width: 50%;
+    border-radius: 5px;
+    border-style: none;
+    font-size: 18px;
+    background-color: rgb(11, 153, 248);
+}
+
+.book-form > button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.book-form > button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.books {
+    display: flex;
+}

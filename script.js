@@ -1,11 +1,16 @@
 let mylibrary = [];
 
+const addBook = document.getElementById('add').addEventListener('click', bookForm)
+
+function bookForm(){
+    
+}
+
 function Book(title, author, pages, read){
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
-
 }
 
 Book.prototype.info = function(){
