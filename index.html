@@ -10,34 +10,36 @@
 </head>
 <body>
     <div class="header">Book library</div>
-
+    
     <div class="main">
         <div class="button">
             <button id="add" type="button">Add book</button>
             <div id="book-form-container" class="book-form-container">
-                <button class="close-button">&times;</button>
+                <button id="close-button" class="close-button">&times;</button>
                 <form id="book-form" class="book-form">
                     <input type="text" id="book-title" name="book-title" placeholder="Title">
                     <input type="text" id="book-author" name="book-author" placeholder="Author">
-                    <input type="number" id="book-pages" name="book-pages" placeholder="123" min="1">
+                    <input type="number" id="book-pages" name="book-pages" placeholder="123" min="1" max="10000">
                     <div class="book-read">
                         <div>Read:</div>
                         <div class="book-read-yes">
                             <label for="read">Yes</label>
-                            <input type="radio" id="read" name="book-read">
+                            <input type="radio" id="read" name="book-read" value="true">
                         </div>
                         <div class="book-read-no">
                             <label for="not-read">No</label>
-                            <input type="radio" id="not-read" name="book-read" checked>
+                            <input type="radio" id="not-read" name="book-read" value="false" checked>
                         </div>
                     </div>
-                    <button type="submit">Add</button>
+                    <button id="add-book" type="button">Add</button>
                 </form>
             </div>
         </div>
-        <div class="books"></div>
+        <div class="library">
+            <div id="books" class="books"></div>
+        </div>
     </div>
     <div id="overlay"></div>
-    <div class="footer"></div>
+    <div class="footer"> Bruno Gallego Costa</div>
 </body>
 </html>
