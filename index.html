@@ -17,8 +17,8 @@
             <div id="book-form-container" class="book-form-container">
                 <button id="close-button" class="close-button">&times;</button>
                 <form id="book-form" class="book-form">
-                    <input type="text" id="book-title" name="book-title" placeholder="Title">
-                    <input type="text" id="book-author" name="book-author" placeholder="Author">
+                    <input type="text" id="book-title" name="book-title" placeholder="Title" minlength="1" maxlength="60">
+                    <input type="text" id="book-author" name="book-author" placeholder="Author" minlength="1" maxlength="60">
                     <input type="number" id="book-pages" name="book-pages" placeholder="123" min="1" max="10000">
                     <div class="book-read">
                         <div>Read:</div>
@@ -40,6 +40,6 @@
         </div>
     </div>
     <div id="overlay"></div>
-    <div class="footer"> Bruno Gallego Costa</div>
+    <div class="footer"> Bruno Gallego Costa @ <a href="https://github.com/BrunoGCosta90">GitHub</a></div>
 </body>
 </html>

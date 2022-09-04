@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #888888;
+    background-color: #d1cbcb;
+    font-family: 'Kanit', sans-serif;
 }
 
 .header {
@@ -13,20 +16,20 @@ body {
 
 .button {
     background-color: white;
-    padding-bottom: 5px;
+    padding-bottom: 7px;
+    display: flex;
+    justify-content: center;
 }
 
 .button > button {
-    margin-left: 80px;
     font-size: 20px;
     width: 150px;
     border: none;
     border-radius: 12px;
     background-color: transparent;
     box-shadow: 1px 2px 2px 1px #888888;
+    cursor: pointer;
 }
-
-
 
 .book-form-container {
     position: fixed;
@@ -66,10 +69,6 @@ body {
     cursor: pointer;
 }
 
-.close-button:active{
-    /* transform: translateY(-1px); */
-}
-
 .book-form {
     grid-row: 2 / 3;
     display: grid;
@@ -79,17 +78,17 @@ body {
 
 .book-form > input {
     border-radius: 5px;
-    border: none;
+    border: 0;
     height: 30px;
     font-size: 18px;
 }
 
 .book-form > input:focus {
-    outline-color: red;
+    outline-color: green;
 }
 
 .invalid-field {
-    
+    outline: 2px solid red !important;
 }
 
 .book-read{
@@ -136,17 +135,36 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     justify-items: center;
     gap: 40px;
-    
     overflow: scroll;
-    
 }
 
 .book-card {
     width: 250px;
     height: 250px;
-    background-color: gainsboro;
+    background-color: white;
     justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 12px;
 }
+
+.book-card > p {
+    font-size: 16px;
+    margin: 1px;
+    text-align: center;
+    word-wrap: break-word;
+}
+.book-card > button {
+    width: 50%;
+    font-size: 13px;
+    align-self: center;
+    margin: 4px;
+    border-radius: 12px;
+    border-style: none;
+}
+
 
 
 #overlay {
@@ -172,4 +190,14 @@ body {
     width: 100vw;
     text-align: center;
     background-color: white;
+    height: 30px;
+}
+
+
+a:visited {
+    color: inherit;
+}
+
+a:hover {
+    cursor: pointer;
 }
