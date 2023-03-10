@@ -16,11 +16,11 @@ const bookAuthor = document.getElementById('book-author')
 const bookPages = document.getElementById('book-pages')
 const bookRead = document.querySelector('input[name="book-read"]')
 
-bookTitle.addEventListener('keyup', verifyTitle)
+bookTitle.addEventListener('input', verifyTitle)
 
-bookAuthor.addEventListener('keyup', verifyAuthor)
+bookAuthor.addEventListener('input', verifyAuthor)
 
-bookPages.addEventListener('keyup', verifyPages)
+bookPages.addEventListener('input', verifyPages)
 
 openFormOverlay.addEventListener('click',
     function(event){
@@ -32,32 +32,67 @@ openFormOverlay.addEventListener('click',
 )
 
 function verifyTitle(){
-    if(bookTitle.value == '' || bookTitle.value == null){
+    const errorSpan = bookTitle.nextElementSibling
+    if (bookTitle.validity.valueMissing){
         bookTitle.classList.add('invalid-field')
+        errorSpan.style.display = 'block'
+        errorSpan.textContent = 'Please, insert a title.'
         return false
-    } else {
+    } else if (bookTitle.validity.tooShort){
+        bookTitle.classList.add('invalid-field')
+        errorSpan.style.display = 'block'
+        errorSpan.textContent = 'Title too short.'
+        return false
+    } else if (bookTitle.validity.valid){
         bookTitle.classList.remove('invalid-field')
+        errorSpan.style.display = 'none'
+        errorSpan.textContent = ''
         return true
     }
+    
 }
 
 function verifyAuthor(){
-    if (bookAuthor.value == '' || bookAuthor.value == null){
+    const errorSpan = bookAuthor.nextElementSibling
+    if (bookAuthor.validity.valueMissing){
         bookAuthor.classList.add('invalid-field')
+        errorSpan.style.display = 'block'
+        errorSpan.textContent = 'Please, insert author name.'
         return false
-    } else {
+    } else if (bookAuthor.validity.tooShort){
+        bookAuthor.classList.add('invalid-field')
+        errorSpan.style.display = 'block'
+        errorSpan.textContent = 'Author name too short.'
+        return false
+    } else if (bookAuthor.validity.valid){
         bookAuthor.classList.remove('invalid-field')
+        errorSpan.style.display = 'none'
+        errorSpan.textContent = ''
         return true
     }
 }
 
 function verifyPages(){
-    if (bookPages.value == '' || bookPages.value == null || 
-        bookPages.value > 10000 || bookPages.value < 1){
+    const errorSpan = bookPages.nextElementSibling
+    if (bookPages.validity.valueMissing){
         bookPages.classList.add('invalid-field')
+        errorSpan.style.display = 'block'
+        errorSpan.textContent = 'Please, insert number of pages.'
         return false
-    } else {
+    } else if (bookPages.validity.rangeUnderflow){
+        bookPages.classList.add('invalid-field')
+        errorSpan.style.display = 'block'
+        errorSpan.textContent = 'Number of pages too low.'
+        return false
+    } else if (bookPages.validity.rangeOverflow){
+        bookPages.classList.add('invalid-field')
+        errorSpan.style.display = 'block'
+        errorSpan.textContent = 'Number of pages too high.'
+        return false
+    } else if (bookPages.validity.valid){
         bookPages.classList.remove('invalid-field')
+        errorSpan.style.display = 'none'
+        errorSpan.textContent = ''
         return true
     }
 }
@@ -211,5 +246,21 @@ function updateID(){
     const cards = document.getElementsByClassName('book-card')
     for (i = 0; i < cards.length; i++){
         cards.item(i).id = i
+    }
+}
+
+function showError(field){
+    switch (field) {
+        case "title":
+
+            break;
+        case "author":
+
+            break;
+        case "pages":
+
+            break;
+        default:
+            break;
     }
 }

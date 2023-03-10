@@ -87,8 +87,16 @@ body {
     outline-color: green;
 }
 
-.invalid-field {
+.invalid-field, .error{
     outline: 2px solid red !important;
+}
+
+.error {
+    margin-top: -22px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    display: none;
 }
 
 .book-read{
